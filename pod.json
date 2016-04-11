@@ -10,6 +10,9 @@
                 "name": "glusterfspod",
                 "image": "aosqe/hello-openshift",
                 "imagePullPolicy": "IfNotPresent",
+                "securityContext": {
+                    "privileged": true
+                },
                 "volumeMounts": [
                     {
                         "mountPath": "/mnt/glusterfs",
