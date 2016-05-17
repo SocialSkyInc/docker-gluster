@@ -1,0 +1,20 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "glusterd"
+    },
+    "spec": {
+			"selector": {
+				"storage": "glusterfs"
+			},
+			"ports": [
+				{
+					"name": "24007",
+					"protocol": "TCP",
+					"port": 24007,
+					"targetPort": 24007
+				}
+			]
+    }
+}
