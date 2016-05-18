@@ -8,7 +8,7 @@
     {
       "addresses": [
         {
-          "ip": "172.30.99.253"
+          "ip": "#SERVICE_IP#"
         }
       ],
       "ports": [
