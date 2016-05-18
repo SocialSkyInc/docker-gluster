@@ -22,6 +22,10 @@ sed -i s/#SERVICE_IP#/172.30.172.117/ endpoints.json
 oc create -f endpoints.json
 ```
 
+### Verifying GlusterFS server pod status
+
+Once you have your server pod created, run `oc exec glusterd -- gluster volume status testvol details`, when you see `Status: Started`, your server is functional.
+
 ## Create Persistent Volume and Claim
 
 ```
