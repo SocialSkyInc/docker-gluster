@@ -22,8 +22,17 @@ sed -i s/#SERVICE_IP#/172.30.172.117/ endpoints.json
 oc create -f endpoints.json
 ```
 
-# Create Persistent Volume and Claim
+## Create Persistent Volume and Claim
 
 ```
+oc create -f pv-rwo.json
+oc create -f pvc-rwo.json
+oc get pv
+oc get pvc
 ```
 
+You should see PV and PVC are bound together
+
+## Create tester pod
+
+Run `oc create -f pod.json`, when you see pod is `Running`, it has mounted the GlusterFS volume successfully.
