@@ -1,32 +1,29 @@
-# GlusterFS server pod
+GlusterFS server pod for OpenShift 3.
 
-## Creating GlusterFS server pod
+# Creating GlusterFS server pod
+
+Edit scc.yml, replace YOUR_USERNAME with your login account, then
 
 ```
-# Edit scc.yml, replace YOUR_USERNAME with your login account
 oc create -f scc.yml
-
-# Create Glusterfs server pod
 oc create -f glusterd.json
-
-# Create service
 oc create -f service.json
 ```
 
-Once your service is created, run `oc get service glusterd`, replace `#SERVICE_IP#` with your service ip in `endpoints.json`.
+Once your service is created, run `oc get service glusterd`, you will get an IP of your service, replace `#SERVICE_IP#` with this IP in `endpoints.json`, then create an endpoint.
 
-Assume your service ip is `172.30.172.117`
+Assume your service ip is `172.30.172.117`, then:
 
 ```
 sed -i s/#SERVICE_IP#/172.30.172.117/ endpoints.json
 oc create -f endpoints.json
 ```
 
-### Verifying GlusterFS server pod status
+## Verifying GlusterFS server pod is functional
 
-Once you have your server pod created, run `oc exec glusterd -- gluster volume status testvol details`, when you see `Status: Started`, your server is functional.
+Once you have your server pod created, run `oc exec glusterd -- gluster volume status testvol details`, you should see `Status: Started`. If you haven't seen it, wait a short time until it's successfully deployed.
 
-## Create Persistent Volume and Claim
+# Creating Persistent Volume and Claim
 
 ```
 oc create -f pv-rwo.json
@@ -37,6 +34,6 @@ oc get pvc
 
 You should see PV and PVC are bound together
 
-## Create tester pod
+# Creating tester pod
 
 Run `oc create -f pod.json`, when you see pod is `Running`, it has mounted the GlusterFS volume successfully.
