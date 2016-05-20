@@ -41,3 +41,4 @@ volumes:
 - persistentVolumeClaim
 - secret
 - rbd
+- glusterfs
