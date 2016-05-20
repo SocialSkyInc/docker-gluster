@@ -9,7 +9,7 @@
         "containers": [
             {
                 "name": "glusterd",
-                "image": "jhou/gluster",
+                "image": "aosqe/gluster",
                 "securityContext": {
                     "privileged": true
                 },
