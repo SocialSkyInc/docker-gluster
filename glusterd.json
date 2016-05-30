@@ -13,7 +13,19 @@
                 "securityContext": {
                     "privileged": true
                 },
-                "imagePullPolicy": "IfNotPresent"
+                "imagePullPolicy": "IfNotPresent",
+                "livenessProbe": {
+                    "exec": {
+                        "command": [
+                            "gluster",
+                            "volume",
+                            "info",
+                            "testvol"
+                        ]
+                    },
+                    "initialDelaySeconds": 30,
+                    "timeoutSeconds": 1
+                }
             }
         ]
     }
