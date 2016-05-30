@@ -21,7 +21,7 @@ oc create -f endpoints.json
 
 ## Verifying GlusterFS server pod is functional
 
-Once you have your server pod created, run `oc exec glusterd -- gluster volume status testvol details`, you should see `Status: Started`. If you haven't seen it, wait a short time until it's successfully deployed.
+Once you have your server pod created, run `oc exec glusterd -- gluster volume info testvol`, you should see `Status: Started`. If you haven't seen it, wait a short time until it's successfully deployed.
 
 # Creating Persistent Volume and Claim
 
