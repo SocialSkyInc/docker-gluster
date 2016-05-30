@@ -14,7 +14,7 @@
                     "privileged": true
                 },
                 "imagePullPolicy": "IfNotPresent",
-                "livenessProbe": {
+                "readinessProbe": {
                     "exec": {
                         "command": [
                             "gluster",
